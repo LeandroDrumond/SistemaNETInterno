@@ -56,10 +56,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ObjectForm.cs" />
-    <Compile Include="TestBase_Vendas.cs" />
+    <Compile Include="Helper\Gerador.cs" />
+    <Compile Include="PageObject\ObjectForm.cs" />
+    <Compile Include="Helper\TestBase_Vendas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FluxoVendas.cs" />
+    <Compile Include="Fluxo\FluxoVendas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
