@@ -42,6 +42,14 @@ namespace TestesFuncionais.Helper {
             return semente;
         }
 
+        public static String gerarNumero() {
+
+            Random rnd = new Random();
+            string rg = rnd.Next(100000000, 999999999).ToString();
+
+            return rg;
+
+        }
 
     }
 }

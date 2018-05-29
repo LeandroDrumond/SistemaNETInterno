@@ -181,9 +181,25 @@ namespace TestesFuncionais {
             IWebElement numero = driver.FindElement(By.Id("numero"));
             numero.Clear();
             numero.SendKeys("591");
+            IWebElement comp = driver.FindElement(By.Id("complemento"));
+            comp.Clear();
+            comp.SendKeys("Apt 105");
+            IWebElement rg = driver.FindElement(By.Id("rg"));
+            rg.Clear();
+            rg.SendKeys(Gerador.gerarNumero());
+            IWebElement OrgaoExp = driver.FindElement(By.Id("orgaoExpedidor"));
+            OrgaoExp.Clear();
+            OrgaoExp.SendKeys("Detran");
+            IWebElement name = driver.FindElement(By.Id("name"));
+            name.Clear();
+            name.SendKeys("Teste nome mae");
 
 
-            
+
+
+
+
+
         }
 
 
