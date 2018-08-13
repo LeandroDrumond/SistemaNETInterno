@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
 namespace VendasTestesFuncionais {
@@ -19,14 +21,16 @@ namespace VendasTestesFuncionais {
 
     // TODO Tempo Espera
 
-    public abstract class TestBase_Vendas {
+    public abstract class TestBase_Vendas: BasePage {
 
         private const int TEMPO_ESPERA_ELEMENTO = 80;
-
-        protected static IWebDriver driver;
+        
         public WebDriverWait wait;
 
-        protected const string PRD = "http://vendastelecom.celulardireto.com.br/planos";
+        protected const string PRD = "";
+
+        protected const string HMG = "";
+
 
         public virtual void InicializaValores() {
             driver = ObtemDriver();
@@ -36,11 +40,10 @@ namespace VendasTestesFuncionais {
 
         public void AbreURL() {
 
-            //driver.Manage().Cookies.DeleteAllCookies();
+            driver.Manage().Cookies.DeleteAllCookies();
             driver.Navigate().GoToUrl(PRD);
+           // driver.Manage().Window.Size = new Size(480, 320);
             driver.Manage().Window.Maximize();
-
-
 
         }
 
@@ -61,8 +64,6 @@ namespace VendasTestesFuncionais {
             runner.Run();
         } */
 
-
-
        /* public TestBase_Vendas() {
             driver = ObtemDriver();
         }*/ 
@@ -77,6 +78,9 @@ namespace VendasTestesFuncionais {
                         var chromeDriverService = ChromeDriverService.CreateDefaultService();
                         chromeDriverService.HideCommandPromptWindow = true;
                         ChromeOptions chromeOptions = new ChromeOptions();
+                        //chromeOptions.AddArguments("headless");
+                        chromeOptions.AddArguments("--incognito");
+                        chromeOptions.AddArgument("--window-size=1300,1000");
                         driver = new ChromeDriver(chromeDriverService, chromeOptions, TimeSpan.FromSeconds(60));
                         break;
                     }
@@ -89,7 +93,13 @@ namespace VendasTestesFuncionais {
 
                 case TipoDriver.InternetExplorer: {
 
-                        driver = new InternetExplorerDriver();
+                        var IEservice = InternetExplorerDriverService.CreateDefaultService();
+                        IEservice.HideCommandPromptWindow = true;
+                        IEservice.SuppressInitialDiagnosticInformation = true;
+                        InternetExplorerOptions IEoptions = new InternetExplorerOptions();
+                        IEoptions.EnsureCleanSession = true;
+                        IEoptions.BrowserCommandLineArguments = "-private";
+                        driver = new InternetExplorerDriver( IEoptions);
                         break;
                     }
 
@@ -104,20 +114,6 @@ namespace VendasTestesFuncionais {
         }
 
 
-
-
-      
-
-
-
-
     }
-
-
-
-
-
-
-
 
 }
