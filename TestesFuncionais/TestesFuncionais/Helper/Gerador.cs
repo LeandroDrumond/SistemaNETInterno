@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestesFuncionais.Helper {
+namespace VendasTestesFuncionais {
     public static class Gerador {
 
 
@@ -50,6 +51,22 @@ namespace TestesFuncionais.Helper {
             return rg;
 
         }
+
+        public static String gerarEmail() {
+
+            string result = Path.GetRandomFileName();
+
+            return (result+"@CELULARDIRETO.COM.BR");
+
+        }
+
+        public static string gerarNumeroCelular()
+        {
+            Random number = new Random();
+            var retorno = number.Next(988888888, 999999999).ToString();
+            return ("21"+retorno);
+        }
+
 
     }
 }
