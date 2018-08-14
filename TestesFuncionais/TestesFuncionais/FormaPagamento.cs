@@ -32,7 +32,7 @@ namespace VendasTestesFuncionais {
             conta = driver.FindElement(By.Id("input_7"));
             btnContinuar = driver.FindElement(By.XPath("//button[contains(text(),'Continuar')]"));
             listaBanco = driver.FindElements(By.XPath("//div[@class='md-text ng-binding']"));
-            rButtonNao = driver.FindElement(By.Id("radio_24"));
+            
            
         }
 
@@ -41,6 +41,8 @@ namespace VendasTestesFuncionais {
         }
 
         public void DebitoFaturaCorreio() {
+
+            rButtonNao = driver.FindElement(By.Id("radio_24"));
 
             Banco.Click();
             //actions.MoveToElement(Banco).Click().Build().Perform();
@@ -119,8 +121,8 @@ namespace VendasTestesFuncionais {
             waitSpinner();
             sim.Click();
             waitSpinner();
-            Thread.Sleep(2000);
-            rButtonNaoBoleto = wait.Until(ExpectedConditions.ElementToBeClickable(driver.FindElement(By.Id("radio_26"))));
+            Thread.Sleep(5000);
+            rButtonNaoBoleto =driver.FindElement(By.Id("radio_26"));
             rButtonNaoBoleto.Click();
             IWebElement btnContinuarBoleto = driver.FindElement(By.CssSelector("button[ng-click='payment.submitPayment(payment.paymentMode, payment.dueDate)']"));
             Thread.Sleep(5000);

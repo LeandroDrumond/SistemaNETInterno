@@ -27,7 +27,7 @@ namespace VendasTestesFuncionais {
         
         public WebDriverWait wait;
 
-        protected const string PRD = "";
+        protected const string PRD = "http://vendastelecom.celulardireto.com.br/login";
 
         protected const string HMG = "";
 

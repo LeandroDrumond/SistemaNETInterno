@@ -62,7 +62,7 @@ namespace VendasTestesFuncionais {
         public void FazLogin() {
 
             driver.FindElement(By.Id("username")).SendKeys("leandro.vianna");
-            driver.FindElement(By.Id("password")).SendKeys("xxxxxxx");
+            driver.FindElement(By.Id("password")).SendKeys("ieH!7b6X");
             driver.FindElement(By.CssSelector("button[type='submit']")).Click();
 
         }
